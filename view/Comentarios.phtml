@@ -1,0 +1,27 @@
+<div class="container">
+<h2 id="comentarios">Comentarios</h2>
+<?php if (isset($_SESSION["login"])){ ?>
+    <form method="POST" action="<?= $URL_PATH ?>/Post/<?= $post->id ?>/comentario">
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <textarea placeholder="Escribe aqui tu comentario" class="form-control" rows="2" name="texto" id="texto"></textarea>
+            </div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Comentar</button>
+            </div>
+        </div>
+    </form>
+<?php } ?>
+<br>
+<?php foreach($comentarios as $comentario) {?>
+<div class="row border-top border-rounded">
+    <div class="col-sm-8">
+        <?= $comentario->texto ?>
+    </div>
+    <col-sm-4>
+        Por <a href="<?= $URL_PATH ?>/Perfil/<?= $comentario->usuario_login ?>"><?= $comentario->usuario_login ?></a> el <?= $comentario->fecha ?>
+    </col-sm-4>
+</div>
+</div>
+<?php } ?>
+

@@ -1,0 +1,147 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bddc9006d80a4306c2a3eaab81515c65",
+    "packages": [
+        {
+            "name": "noahbuscher/macaw",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/noahbuscher/macaw.git",
+                "reference": "ade32370a3d09f1fa498de254411d1b6b7be1877"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/noahbuscher/macaw/zipball/ade32370a3d09f1fa498de254411d1b6b7be1877",
+                "reference": "ade32370a3d09f1fa498de254411d1b6b7be1877",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "~3.9",
+                "phpunit/phpunit": "^4.8-stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NoahBuscher\\Macaw\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Noah Buscher",
+                    "email": "me@noahbuscher.com",
+                    "homepage": "http://noahbuscher.com/"
+                }
+            ],
+            "description": "Simple PHP router class.",
+            "homepage": "https://github.com/noahbuscher/Macaw",
+            "keywords": [
+                "php",
+                "php-router",
+                "router"
+            ],
+            "time": "2019-01-14T14:49:59+00:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "ada2011dfa3e2954528e344a77f5412cc41dbd66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ada2011dfa3e2954528e344a77f5412cc41dbd66",
+                "reference": "ada2011dfa3e2954528e344a77f5412cc41dbd66",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                },
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "time": "2020-01-21T11:36:00+00:00"
+        },
+        {
+            "name": "victorjfg/dawfony",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2daw-jovellanos/dawfony.git",
+                "reference": "ed27a0ab5f763d20fc63641bc6ef53e5f59d4acc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2daw-jovellanos/dawfony/zipball/ed27a0ab5f763d20fc63641bc6ef53e5f59d4acc",
+                "reference": "ed27a0ab5f763d20fc63641bc6ef53e5f59d4acc",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dawfony\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "victorjfg"
+                }
+            ],
+            "description": "php MVP mini-framework: template inheritance & mysql interaction helper. For educative purposes only.",
+            "time": "2020-01-22T11:11:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "noahbuscher/macaw": 20,
+        "victorjfg/dawfony": 20,
+        "twbs/bootstrap": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

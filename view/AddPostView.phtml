@@ -1,0 +1,26 @@
+<?php global $URL_PATH; ?>
+<?php \dawfony\Ti::extend("view/MainView.phtml"); ?>
+<?php \dawfony\Ti::startBlock("content"); ?>
+<form action="<?=$URL_PATH?>/AddPost" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="validationTooltip04">Género</label>
+      <select class="custom-select" id="validationTooltip04" name="genero" required>
+        <option value="0" <?= $genero == 0 ? "selected" : "" ?>>Anime</option>
+        <option value="1" <?= $genero == 1 ? "selected" : "" ?>>Kpop</option>
+        <option value="2" <?= $genero == 2 ? "selected" : "" ?>>Jpop</option>
+      </select>
+    </div>
+    <div class="mb-3">
+        <label for="resumen">Resumen: </label>
+        <textarea class="form-control" id="resumen" name="resumen" rows="2" required><?= $resumen ?></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="comentario">Comentario: </label>
+        <textarea class="form-control" id="comentario" name="comentario" rows="5" required><?= $comentario ?></textarea>
+    </div>
+    <input class="btn btn-secondary" type="file" name="imagen" required>
+    <span style="color:red;"><?=$errorImagen?></span><br><br>
+  <button type="submit" class="btn btn-primary">Añadir Post!</button>
+</form>
+<?php \dawfony\Ti::endBlock(); ?>
+<?php \dawfony\Ti::endExtend(); ?>

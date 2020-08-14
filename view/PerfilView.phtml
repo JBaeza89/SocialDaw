@@ -1,0 +1,55 @@
+<?php global $URL_PATH;?>
+<?php \dawfony\Ti::extend("view/MainView.phtml"); ?>
+<?php \dawfony\Ti::startBlock("content"); ?>
+<h2><?= $usuario->login ?></h2>
+<h5><?= $usuario->nombre ?></h5>
+<?php if (isset($_SESSION["login"])) {?>
+<?php $comprobacion = strtolower($_SESSION["login"]) != strtolower($usuario->login);?>
+<?php if ($_SESSION["rol"] == 1 && $comprobacion) :?>
+<a href="<?=$URL_PATH?>/Admin/borrarusuario/<?=$usuario->login?>" class="btn btn-danger btn-sm">
+Eliminar Usuario</a>
+<?php endif ?>
+<?php } ?>
+<p>
+        <i class="fa fa-users"></i>
+        <a href=#>Siguiendo</a> <span class="badge badge-secondary"><?= $siguiendo["cuenta"] ?></span>
+        - <a href=#>Seguidores</a> <span class="badge badge-secondary"><?= $seguidores["cuenta"] ?></span>
+</p>
+<?php if (isset($_SESSION["login"]) && $comprobacion) { 
+        if ($loSigues) {?>
+        <a href="<?=$URL_PATH.'/Perfil/'.$usuario->login.'/noseguir'?>" class="btn btn-secondary btn-sm">
+        Dejar de seguir a <?=$usuario->login?></a>
+<?php } else {?>
+        <a href="<?=$URL_PATH.'/Perfil/'.$usuario->login.'/seguir'?>" class="btn btn-secondary btn-sm">
+        Seguir a <?=$usuario->login?></a>
+<?php }} ?>
+<h3>Posts: </h3>
+<hr>
+<div class="row">
+<?php foreach ($posts as $post) { ?>
+	<div class="col-md-2">
+        <img src="<?=$URL_PATH?>/media/<?=$post->foto?>" alt="<?=$post->foto?>" class="img-thumbnail">
+	</div>
+	<div class="col-md-8">
+        <p>
+        <?=$post->resumen?>
+        </p>
+        <div class="row">
+        <div class="col-md-4">
+                <a href="<?=$URL_PATH?>/Post/<?=$post->id?>" type="button" class="btn btn-info text-white">Leer Más</a>
+            </div>
+            <div class="col-md-4">
+            
+            </div>
+            <div class="col-md-4">
+            
+            </div>
+        </div>
+	</div>
+	<div class="col-md-2">
+        <h3>Por <a href="<?=$URL_PATH?>/Perfil/<?=$post->usuario_login?>"><?=$post->usuario_login?></a> en <?=$post->fecha?> <?=$post->categoria?></h3>
+        </div>
+<?php } ?>
+</div>
+<?php \dawfony\Ti::endBlock(); ?>
+<?php \dawfony\Ti::endExtend(); ?>

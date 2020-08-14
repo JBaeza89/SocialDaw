@@ -1,0 +1,16 @@
+{
+    "name": "victor/prudawfony",
+    "type": "project",
+    "require": {
+        "noahbuscher/macaw": "dev-master",
+        "victorjfg/dawfony": "dev-master",
+        "twbs/bootstrap": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "vjfernandez",
+            "email": "victor.fernandezgil@educa.madrid.org"
+        }
+    ],
+    "minimum-stability": "dev"
+}

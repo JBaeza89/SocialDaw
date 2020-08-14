@@ -1,0 +1,34 @@
+<?php \dawfony\Ti::extend("view/MainView.phtml"); ?>
+<?php \dawfony\Ti::startBlock("content"); ?>
+<?php if (isset($data['filasInsertadas'])) {
+        if ($data['filasInsertadas'] == 1) { ?>
+<div class="alert alert-success" role="alert">
+  Enhorabuena! Su usuario ha sido registrado! Logueate para continuar.
+</div>
+<?php }} else { ?>
+<form action="Registrate" method="POST">
+  <div class="form-group">
+    <label for="login">Login:</label>
+    <input type="text" class="form-control" id="login" name="login" value="<?= $login ?>">
+  </div> <span style="color:red;">* <?= $errorLogin ?></span>
+  <div class="form-group">
+    <label for="contrasenha">Contraseña:</label>
+    <input type="password" class="form-control" id="contrasenha" name="contrasenha">
+  </div>
+  <div class="form-group">
+    <label for="repitecontrasenha">Repite contraseña:</label>
+    <input type="password" class="form-control" id="repitecontrasenha" name="repiteContrasenha">
+  </div><span style="color:red;">* <?= $errorContrasenha ?></span>
+  <div class="form-group">
+    <label for="nombre">Tu nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email">
+  </div>
+  <button type="submit" class="btn btn-primary">Registrarte!</button>
+</form>
+<?php } ?>
+<?php \dawfony\Ti::endBlock(); ?>
+<?php \dawfony\Ti::endExtend(); ?>

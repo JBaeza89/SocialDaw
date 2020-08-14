@@ -1,0 +1,69 @@
+<?php global $URL_PATH;?>
+<?php \dawfony\Ti::extend("view/MainView.phtml"); ?>
+<?php \dawfony\Ti::startBlock("content"); ?>             
+<?php foreach ($posts as $post) { ?>
+<div class="row">
+	<div class="col-md-2">
+        <img src="<?=$URL_PATH?>/media/<?=$post->foto?>" alt="<?=$post->foto?>" class="img-thumbnail">
+	</div>
+	<div class="col-md-8">
+        <p>
+        <?=$post->resumen?>
+        </p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="<?=$URL_PATH?>/Post/<?=$post->id?>" type="button" class="btn btn-info text-white">Leer Más</a>
+            </div>
+            <div class="col-md-2">
+                <?php /*Pasamos el id del post al evento de javascript. Enlace solo si usuario logueado*/ ?>
+                <?php if (isset($_SESSION["login"])) : ?>
+                        <a href="javascript:void(0)" onclick="likeClicked(<?= $post->id ?>)">
+                <?php endif ?>
+                <?php /* El atributo id del elemento del corazón tiene como sufijo el id del post */ ?>
+                                <i id="likecorazon<?= $post->id ?>" class="fa fa-heart<?= ($post->like ? " text-danger" : "") ?>"></i>
+                <?php if (isset($_SESSION["login"])) : ?>
+                        </a>
+                <?php endif ?>
+                <?php /* Lo mismo para el elemento que contiene la cuenta de likes:
+                             su atributo id contiene como sufijo el id del post */ ?>
+                <span id="likecontador<?= $post->id ?>">
+                <?= $post->numLikes ?>
+                </span>
+            </div>
+            <div class="col-md-2">
+                <a href="<?= $URL_PATH ?>/Post/<?= $post->id ?>#comentarios"><i class="fa fa-comments"></i> <?= $post->numComentarios ?></a>
+            </div>
+        </div>
+	</div>
+	<div class="col-md-2">
+        <h3>Por <a href="<?= $URL_PATH ?>/Perfil/<?=$post->usuario_login?>"><?=$post->usuario_login?></a> en <?=$post->fecha?> <?=$post->categoria ?></h3>
+        </div>
+</div>
+<hr>      
+<?php } ?>
+<?php if (isset($_SESSION["rol"])) {?>
+<form action="<?=$URL_PATH?>/AddPost" method="GET">
+<button type="submit" class="btn btn-primary rounded-circle fixed-bottom" style="height: 120px; width: 100px; left: 85%;">ADD</button>
+</form>
+<?php } ?>
+<?php if ($numpaginas > 0) : ?>
+<nav aria-label="Page navigation" class="mt-2">
+    <ul class="pagination">
+        <li class="page-item<?=($page - 1 < 1 ? " disabled":"")?>">
+            <a class="page-link" href="<?= $ruta . ($page - 1) ?>" tabindex="-1">Anterior</a>
+        </li>
+        <li class="page-item disabled">
+        <a class="page-link" href="#"><?= $page ?></a>
+    </li>
+        <li class="page-item<?=($page + 1 > $numpaginas ? " disabled":"")?>" >
+            <a class="page-link" href="<?= $ruta . ($page + 1) ?>">Siguiente</a>
+        </li>
+    </ul>
+</nav>
+<?php endif; ?>
+<script>
+var URL_PATH = '<?= $URL_PATH ?>';
+</script>
+<script src="<?= $URL_PATH ?>/js/like.js"></script>
+<?php \dawfony\Ti::endBlock(); ?>
+<?php \dawfony\Ti::endExtend(); ?>
